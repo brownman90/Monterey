@@ -13,7 +13,7 @@ import javax.persistence.*;
 /**
  * BaseObject used to define basic methods used by all model objects.
  *
- * @author James Kulba, jkulba@gmail.com
+ * @author James Kulba, jjkulba@yahoo.com
  */
 @MappedSuperclass
 public class BaseObject implements Serializable {

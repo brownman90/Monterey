@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Model object that represents a contact.
  *
- * @author James Kulba, jkulba@gmail.com
+ * @author James Kulba, jjkulba@yahoo.com
  */
 @Entity
 @Table(name = "CONTACT")

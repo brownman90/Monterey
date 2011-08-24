@@ -16,6 +16,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Junit test exercises Contact CRUD actions.
+ *
+ * @author James Kulba, jjkulba@yahoo.com
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:monterey-jpa.xml")
 @Transactional
