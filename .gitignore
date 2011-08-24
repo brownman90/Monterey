@@ -1,0 +1,6 @@
+# Ignore the following files
+.idea
+monterey.iml
+monterey-data.iml
+monterey-web.iml
+

@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>us.kulba</groupId>
-    <artifactId>montery-data</artifactId>
+    <artifactId>monterey-data</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Monterey Data</name>
 
