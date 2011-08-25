@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import sun.org.mozilla.javascript.internal.ContextAction;
 import us.kulba.monterey.model.Contact;
 import us.kulba.monterey.service.ContactManager;
-import us.kulba.monterey.web.converter.ContactJsonConverter;
 
 /**
  * Restful controller to handle client requests.
@@ -29,11 +28,10 @@ public class ContactController {
     @RequestMapping(value = "contact", method = RequestMethod.POST)
     public
     @ResponseBody
-    ModelMap createContactHandler(ModelMap model, @RequestBody String json) {
-        log.debug("Hit Create Contact controller handler method.", json);
+    ModelMap createContactHandler(ModelMap model, @RequestBody Contact contact) {
+        log.debug("Hit Create Contact controller handler method.", contact.toString());
 
         try {
-            Contact contact = ContactJsonConverter.convertToContact(json);
             contact = contactManager.createContact(contact);
             model.addAttribute("data", contact);
             model.addAttribute("success", true);
@@ -70,11 +68,10 @@ public class ContactController {
     @RequestMapping(value = "contact/{contactId}", method = RequestMethod.PUT)
     public
     @ResponseBody
-    ModelMap updateContactHandler(ModelMap model, @PathVariable Long patientId, @RequestBody String json) {
+    ModelMap updateContactHandler(ModelMap model, @PathVariable Long patientId, @RequestBody Contact contact) {
         log.debug("Hit Update Contact controller handler method.", patientId);
 
         try {
-            Contact contact = ContactJsonConverter.convertToContact(json);
             contact = contactManager.updateContact(contact);
             model.addAttribute("data", contact);
             model.addAttribute("success", true);
