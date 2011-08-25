@@ -26,6 +26,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>us.kulba</groupId>
+            <artifactId>monterey-data</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Servlet dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
