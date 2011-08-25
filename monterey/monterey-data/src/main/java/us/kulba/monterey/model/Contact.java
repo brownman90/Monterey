@@ -1,10 +1,15 @@
 package us.kulba.monterey.model;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 import us.kulba.monterey.common.constants.ContactType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,12 +19,14 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "CONTACT")
-public class Contact extends BaseObject {
+public class Contact extends AbstractPersistable<Long> {
 
-    @Id
-    @Column(name = "CONTACT_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private static final long serialVersionUID = 1L;
+
+//    @Id
+//    @Column(name = "CONTACT_ID")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long contactId;
 
     @NotNull
     @Length(max = 50)
@@ -38,8 +45,24 @@ public class Contact extends BaseObject {
     @Column(name = "DATE_OF_BIRTH")
     private Date dateOfBirth;
 
-    public Long getId() {
-        return id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATE_ENTERED")
+    private Date dateEntered;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATE_UPDATED")
+    private Date dateUpdated;
+
+    @PrePersist
+    protected void onPersist() {
+        Calendar calendar = Calendar.getInstance();
+        this.setDateEntered(calendar.getTime());
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        Calendar calendar = Calendar.getInstance();
+        this.setDateUpdated(calendar.getTime());
     }
 
     public String getFirstName() {
@@ -73,4 +96,37 @@ public class Contact extends BaseObject {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+//    public Long getContactId() {
+//        return contactId;
+//    }
+//
+//    public void setContactId(Long contactId) {
+//        this.contactId = contactId;
+//    }
+
+    public Date getDateEntered() {
+        return dateEntered;
+    }
+
+    @JsonIgnore
+    public void setDateEntered(Date dateEntered) {
+        this.dateEntered = dateEntered;
+    }
+
+    public Date getDateUpdated() {
+        return dateUpdated;
+    }
+
+    @JsonIgnore
+    public void setDateUpdated(Date dateUpdated) {
+        this.dateUpdated = dateUpdated;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this,
+                ToStringStyle.MULTI_LINE_STYLE);
+    }
+
 }

@@ -22,7 +22,7 @@ import java.util.List;
  * @author James Kulba, jjkulba@yahoo.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:monterey-jpa.xml")
+@ContextConfiguration(locations = "classpath:us/kulba/monterey/monterey-jpa.xml")
 @Transactional
 public class ContactRepositoryTest {
     final Logger logger = LoggerFactory.getLogger(ContactRepositoryTest.class);
@@ -62,6 +62,14 @@ public class ContactRepositoryTest {
         for (Contact contact : contacts) {
             logger.info(contact.toString());
         }
+
+        Contact _contact = contactRepository.findOne(1L);
+
+        _contact.setContactType(ContactType.SCHOOL);
+
+        contactRepository.save(_contact);
+
+        logger.debug(_contact.toString());
 
     }
 
