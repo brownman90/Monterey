@@ -8,28 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-    <mvc:annotation-driven/>
-
-    <!-- Forwards requests to the "/" resource to the "welcome" view -->
-    <mvc:view-controller path="/" view-name="index"/>
-
-    <!--<tx:annotation-driven/>-->
-
     <context:component-scan base-package="us.kulba.monterey.web.controller"/>
     <context:component-scan base-package="us.kulba.monterey.service"/>
-
-    <!-- URL Mapping Handler.-->
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="jsonConverter" />
-            </list>
-        </property>
-    </bean>
-
-    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-        <property name="supportedMediaTypes" value="application/json" />
-    </bean>
 
 </beans>

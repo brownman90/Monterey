@@ -28,33 +28,13 @@ public class ContactController {
     @RequestMapping(value = "contact", method = RequestMethod.POST)
     public
     @ResponseBody
-    ModelMap createContactHandler(ModelMap model, @RequestBody String json) {
+    ModelMap createContactHandler(ModelMap model, @RequestBody Contact contact) {
         log.debug("Hit Create Contact controller handler method.");
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        try {
-            JsonNode rootNode = mapper.readValue(json, JsonNode.class);
-            JsonNode dataNode = rootNode.path("Contact");
-            if (dataNode.isObject()) {
-                Contact contact = mapper.readValue(dataNode.toString(), Contact.class);
-
-                contact = contactManager.createContact(contact);
-                log.debug(contact.toString());
-
-                model.addAttribute("contact", contact);
-                model.addAttribute("success", true);
-            } else {
-                log.error("Expected data format was not found.");
-                model.addAttribute("success", false);
-                model.addAttribute("message", "Expected data format was not found.");
-            }
-        } catch (Exception e) {
-            log.error("Error occurred while consuming JSON request from client.", e);
-            model.addAttribute("success", false);
-            model.addAttribute("message", "Error occurred while consuming JSON request from client.\n" + e.getMessage());
-        }
+        log.debug(contact.toString());
+        contact = contactManager.createContact(contact);
+        log.debug(contact.toString());
+        model.addAttribute("contact", contact);
+        model.addAttribute("success", true);
 
         return model;
     }

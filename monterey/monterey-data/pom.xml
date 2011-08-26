@@ -20,7 +20,7 @@
         <org.springframework.version>3.0.6.RELEASE</org.springframework.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
         <org.aspectj.version>1.6.11</org.aspectj.version>
-        <org.codehaus.jackson.version>1.8.0</org.codehaus.jackson.version>
+        <org.codehaus.jackson.version>1.8.5</org.codehaus.jackson.version>
 
         <hibernate.version>3.6.6.Final</hibernate.version>
         <hibernatevalidator.version>4.2.0.Final</hibernatevalidator.version>
@@ -202,12 +202,18 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernatevalidator.version}</version>
         </dependency>
 
-        <!-- Jackson JSON -->
+        <!-- Jackson JSON Mapper -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
