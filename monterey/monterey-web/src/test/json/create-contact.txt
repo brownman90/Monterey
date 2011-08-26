@@ -1,0 +1,9 @@
+{
+  "requestUrl" : "http://localhost:8080/contact/",
+  "requestMethod" : "POST",
+  "requestBody" : "{\n      \"id\": \"0\",\n      \"firstName\": \"Joseph\",\n      \"lastName\": \"Kulba\",\n      \"contactType\": \"WORK\",\n      \"dateOfBirth\": \"2011-03-01T12:00:00\"\n }",
+  "headers" : [
+  	"Content-Type",
+    "application/json"
+  ]
+}

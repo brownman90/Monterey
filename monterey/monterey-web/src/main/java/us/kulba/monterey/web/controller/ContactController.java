@@ -63,36 +63,13 @@ public class ContactController {
     @RequestMapping(value = "contact/{contactId}", method = RequestMethod.PUT)
     public
     @ResponseBody
-    ModelMap updateContactHandler(ModelMap model, @PathVariable Long contactId, @RequestBody String json) {
+    ModelMap updateContactHandler(ModelMap model, @PathVariable Long contactId, @RequestBody Contact contact) {
         log.debug("Hit Update Contact controller handler method.");
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        try {
-            JsonNode rootNode = mapper.readValue(json, JsonNode.class);
-            JsonNode dataNode = rootNode.path("Contact");
-            if (dataNode.isObject()) {
-                Contact contact = mapper.readValue(dataNode.toString(), Contact.class);
-
-                log.debug(contact.toString());
-
-                contact = contactManager.updateContact(contact);
-
-                log.debug(contact.toString());
-
-                model.addAttribute("contact", contact);
-                model.addAttribute("success", true);
-            } else {
-                log.error("Expected data format was not found.");
-                model.addAttribute("success", false);
-                model.addAttribute("message", "Expected data format was not found.");
-            }
-        } catch (Exception e) {
-            log.error("Error occurred while consuming JSON request from client.", e);
-            model.addAttribute("success", false);
-            model.addAttribute("message", "Error occurred while consuming JSON request from client.\n" + e.getMessage());
-        }
+        contact = contactManager.updateContact(contact);
+        log.debug(contact.toString());
+        model.addAttribute("contact", contact);
+        model.addAttribute("success", true);
 
         return model;
     }

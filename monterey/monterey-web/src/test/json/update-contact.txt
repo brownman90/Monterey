@@ -1,0 +1,9 @@
+{
+   "requestUrl" : "http://localhost:8080/contact/1",
+   "requestMethod" : "PUT",
+   "requestBody" : "{\n      \"id\": \"1\",\n      \"firstName\": \"Joseph\",\n      \"lastName\": \"Kulba\",\n      \"contactType\": \"HOME\",\n      \"dateOfBirth\": \"2011-03-01T12:00:00\",\n      \"dateEntered\": \"2011-08-26T12:20:30\"\n }",
+   "headers" : [
+         "Content-Type",
+         "application/json"
+      ]
+}
