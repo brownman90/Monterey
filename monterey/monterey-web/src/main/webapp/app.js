@@ -3,10 +3,10 @@ Ext.Loader.setConfig({
 });
 
 Ext.application({
-    name: 'USERS',
-    autoCreateViewport: false,
+    name: 'Monterey',
+    autoCreateViewport: true,
     controllers: [
-        'Users'
+        'Contacts'
     ],
 
     launch: function() {
