@@ -1,15 +1,14 @@
+Ext.Loader.setConfig({
+    enabled:true
+});
+
 Ext.application({
-
-    name: 'Monterey',
-
+    name: 'USERS',
+    autoCreateViewport: false,
     controllers: [
-
+        'Users'
     ],
 
-    autoCreateViewport: false,
-
-
-
-
-
+    launch: function() {
+    }
 });
