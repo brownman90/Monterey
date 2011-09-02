@@ -2,6 +2,7 @@ package us.kulba.monterey.common.constants;
 
 /**
  * Enum that describes the allowed contact types.
+ *
  * @author James Kulba, jjkulba@yahoo.com
  */
 public enum IndustryType {

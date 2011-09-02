@@ -23,11 +23,6 @@ public class Contact extends AbstractPersistable<Long> {
 
     private static final long serialVersionUID = 1L;
 
-//    @Id
-//    @Column(name = "CONTACT_ID")
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Long contactId;
-
     @NotNull
     @Length(max = 50)
     @Column(name = "FIRST_NAME")
@@ -96,14 +91,6 @@ public class Contact extends AbstractPersistable<Long> {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
-//    public Long getContactId() {
-//        return contactId;
-//    }
-//
-//    public void setContactId(Long contactId) {
-//        this.contactId = contactId;
-//    }
 
     public Date getDateEntered() {
         return dateEntered;
