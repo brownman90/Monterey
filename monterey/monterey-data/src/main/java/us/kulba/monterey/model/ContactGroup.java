@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
  * @author James Kulba, jjkulba@yahoo.com
  */
 @Entity
-@Table(name = "GROUP")
-public class Group extends AbstractPersistable<Long> {
+@Table(name = "CONTACT_GROUP")
+public class ContactGroup extends AbstractPersistable<Long> {
 
 	private static final long serialVersionUID = 1L;
 
