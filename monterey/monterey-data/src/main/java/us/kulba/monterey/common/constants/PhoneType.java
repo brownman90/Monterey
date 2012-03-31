@@ -1,16 +1,16 @@
 package us.kulba.monterey.common.constants;
 
 /**
- * Enum that describes the allowed group types.
+ * Enum that describes the allowed phone types.
  *
  * @author James Kulba, jjkulba@yahoo.com
  */
-public enum GroupType {
-    FAMILY("Family") {
+public enum PhoneType {
+    HOME("Home") {
 
         @Override
         public String getDescription() {
-            return "Family group type";
+            return "Home phone type";
         }
 
         @Override
@@ -18,11 +18,11 @@ public enum GroupType {
             return true;
         }
     },
-    FRIENDS("Friends") {
+    MOBILE("Mobile") {
 
         @Override
         public String getDescription() {
-            return "Friends group type";
+            return "Mobile phone type";
         }
 
         @Override
@@ -30,11 +30,11 @@ public enum GroupType {
             return true;
         }
     },
-    COLLEAGUE("Colleague") {
+    WORK("Work") {
 
         @Override
         public String getDescription() {
-            return "Colleague group type";
+            return "Work phone type";
         }
         @Override
         public boolean display() {
@@ -43,7 +43,7 @@ public enum GroupType {
     };
     private final String strValue;
 
-    private GroupType(final String strValue) {
+    private PhoneType(final String strValue) {
         this.strValue = strValue;
     }
 

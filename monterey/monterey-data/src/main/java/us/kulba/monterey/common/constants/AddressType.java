@@ -1,11 +1,11 @@
 package us.kulba.monterey.common.constants;
 
 /**
- * Enum that describes the allowed contact types.
+ * Enum that describes the allowed address types.
  *
  * @author James Kulba, jjkulba@yahoo.com
  */
-public enum ContactType {
+public enum AddressType {
     HOME("Home") {
 
         @Override
@@ -43,7 +43,7 @@ public enum ContactType {
     };
     private final String strValue;
 
-    private ContactType(final String strValue) {
+    private AddressType(final String strValue) {
         this.strValue = strValue;
     }
 

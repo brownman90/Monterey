@@ -19,7 +19,7 @@
 				<property name="database" value="HSQL" />
 			</bean>
 		</property>
-		<property name="persistenceUnitName" value="monterey" />
+		<property name="persistenceUnitName" value="MONTEREY" />
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

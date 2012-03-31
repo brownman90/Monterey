@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import us.kulba.monterey.common.constants.ContactType;
 import us.kulba.monterey.model.Contact;
 
 import java.text.ParseException;
@@ -42,7 +41,6 @@ public class ContactRepositoryTest {
         contact = new Contact();
         contact.setFirstName("James");
         contact.setLastName("Kulba");
-        contact.setContactType(ContactType.HOME);
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:m:s");
 
@@ -64,9 +62,7 @@ public class ContactRepositoryTest {
         }
 
         Contact _contact = contactRepository.findOne(1L);
-
-        _contact.setContactType(ContactType.SCHOOL);
-
+        _contact.setFirstName("Joseph");
         contactRepository.save(_contact);
 
         logger.debug(_contact.toString());

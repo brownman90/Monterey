@@ -5,7 +5,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.AbstractPersistable;
-import us.kulba.monterey.common.constants.ContactType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -33,9 +32,6 @@ public class Contact extends AbstractPersistable<Long> {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "CONTACT_TYPE")
-    private ContactType contactType;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_OF_BIRTH")
     private Date dateOfBirth;
@@ -44,20 +40,14 @@ public class Contact extends AbstractPersistable<Long> {
     @Column(name = "DATE_ENTERED")
     private Date dateEntered;
 
+    @Version
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_UPDATED")
     private Date dateUpdated;
 
-    @PrePersist
-    protected void onPersist() {
+    public Contact() {
         Calendar calendar = Calendar.getInstance();
         this.setDateEntered(calendar.getTime());
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        Calendar calendar = Calendar.getInstance();
-        this.setDateUpdated(calendar.getTime());
     }
 
     public String getFirstName() {
@@ -74,14 +64,6 @@ public class Contact extends AbstractPersistable<Long> {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public ContactType getContactType() {
-        return contactType;
-    }
-
-    public void setContactType(ContactType contactType) {
-        this.contactType = contactType;
     }
 
     public Date getDateOfBirth() {
