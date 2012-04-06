@@ -9,6 +9,8 @@
         <class>us.kulba.monterey.model.Event</class>
         <class>us.kulba.monterey.model.Email</class>
         <class>us.kulba.monterey.model.HomeEmail</class>
+        <class>us.kulba.monterey.model.InputComponent</class>
+        <class>us.kulba.monterey.model.TextInputComponent</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
 
