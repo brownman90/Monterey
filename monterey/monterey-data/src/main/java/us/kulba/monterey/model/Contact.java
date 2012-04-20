@@ -3,8 +3,12 @@ package us.kulba.monterey.model;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import us.kulba.monterey.model.serializer.DateIsoDeSerializer;
+import us.kulba.monterey.model.serializer.DateIsoSerializer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -66,28 +70,32 @@ public class Contact extends AbstractPersistable<Long> {
         this.lastName = lastName;
     }
 
+    @JsonSerialize(using= DateIsoSerializer.class)
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
+    @JsonDeserialize(using=DateIsoDeSerializer.class)
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    @JsonSerialize(using= DateIsoSerializer.class)
     public Date getDateEntered() {
         return dateEntered;
     }
 
-    @JsonIgnore
+    @JsonDeserialize(using=DateIsoDeSerializer.class)
     public void setDateEntered(Date dateEntered) {
         this.dateEntered = dateEntered;
     }
 
+    @JsonSerialize(using= DateIsoSerializer.class)
     public Date getDateUpdated() {
         return dateUpdated;
     }
 
-    @JsonIgnore
+    @JsonDeserialize(using=DateIsoDeSerializer.class)
     public void setDateUpdated(Date dateUpdated) {
         this.dateUpdated = dateUpdated;
     }

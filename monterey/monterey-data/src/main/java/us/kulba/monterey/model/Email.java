@@ -1,6 +1,10 @@
 package us.kulba.monterey.model;
 
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import us.kulba.monterey.model.serializer.DateIsoDeSerializer;
+import us.kulba.monterey.model.serializer.DateIsoSerializer;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -19,11 +23,10 @@ public abstract class Email extends AbstractPersistable<Long> {
     @Column(name = "DATE_ENTERED")
     private Date dateEntered;
 
-    @PrePersist
-    protected void onPersist() {
-        Calendar calendar = Calendar.getInstance();
-        this.setDateEntered(calendar.getTime());
-    }
+    @Version
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATE_UPDATED")
+    private Date dateUpdated;
 
     public String getEmailAddress() {
         return emailAddress;
@@ -33,11 +36,23 @@ public abstract class Email extends AbstractPersistable<Long> {
         this.emailAddress = emailAddress;
     }
 
+    @JsonSerialize(using= DateIsoSerializer.class)
     public Date getDateEntered() {
         return dateEntered;
     }
 
+    @JsonDeserialize(using=DateIsoDeSerializer.class)
     public void setDateEntered(Date dateEntered) {
         this.dateEntered = dateEntered;
+    }
+
+    @JsonSerialize(using= DateIsoSerializer.class)
+    public Date getDateUpdated() {
+        return dateUpdated;
+    }
+
+    @JsonDeserialize(using=DateIsoDeSerializer.class)
+    public void setDateUpdated(Date dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 }
