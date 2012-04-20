@@ -6,7 +6,7 @@ Ext.application({
 
     name: 'Monterey',
     appFolder: 'app',
-    autoCreateViewport: true,
+    autoCreateViewport: false,
     enableQuickTips: true,
 
     controllers: [
@@ -18,9 +18,8 @@ Ext.application({
     ],
 
     launch: function() {
-        console.log('Yeah Baby!');
-        Monterey.app = this;
-
+        this.viewport = Ext.create('Monterey.view.Viewport', {
+            application:this
+        });
     }
-
 });
