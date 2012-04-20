@@ -3,12 +3,24 @@ Ext.Loader.setConfig({
 });
 
 Ext.application({
+
     name: 'Monterey',
+    appFolder: 'app',
     autoCreateViewport: true,
+    enableQuickTips: true,
+
     controllers: [
         'Contacts'
     ],
 
+    requires: [
+
+    ],
+
     launch: function() {
+        console.log('Yeah Baby!');
+        Monterey.app = this;
+
     }
+
 });

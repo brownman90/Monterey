@@ -6,13 +6,13 @@ import javax.persistence.Entity;
 import java.util.Calendar;
 
 /**
- * HomeEmail email type.
+ * WorkEmail email type.
  *
  * @author James Kulba, jjkulba@yahoo.com
  */
 @Entity
-@DiscriminatorValue("HOME")
-public class HomeEmail extends Email {
+@DiscriminatorValue("WORK")
+public class WorkEmail extends Email {
 
     @Column(name = "CONTACT_ID")
     private Long contactId;
@@ -20,7 +20,7 @@ public class HomeEmail extends Email {
     @Column(name = "PREFERRED")
     private boolean preferred;
 
-    public HomeEmail() {
+    public WorkEmail() {
         Calendar calendar = Calendar.getInstance();
         this.setDateEntered(calendar.getTime());
     }
