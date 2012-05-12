@@ -3,6 +3,7 @@ package us.kulba.monterey.model;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,14 +21,24 @@ public class ContactGroup extends AbstractPersistable<Long> {
 
 	@NotNull
 	@Length(max = 30)
+    @Column(name = "NAME")
 	private String name;
+    @Column(name = "IS_ACTIVE")
+    private boolean active;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }
