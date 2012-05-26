@@ -6,6 +6,12 @@
         </encoder>
     </appender>
 
+    <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
+        <syslogHost>10.1.1.248</syslogHost>
+        <facility>SYSLOG</facility>
+        <suffixPattern>[%thread] %logger %msg</suffixPattern>
+    </appender>
+
     <logger name="us.kulba.monterey">
         <level value="DEBUG"/>
     </logger>
@@ -19,7 +25,8 @@
     </logger>
 
     <root>
-        <level value="INFO"/>
+        <level value="DEBUG"/>
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SYSLOG" />
     </root>
 </configuration>

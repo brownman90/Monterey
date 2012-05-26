@@ -1,6 +1,7 @@
 package us.kulba.monterey.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,15 +29,15 @@ public class Address extends BaseObject {
     private String addressState;
     @Column(name = "ZIP_CODE")
     private String zipCode;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_ENTERED")
     private Date dateEntered;
-
     @Version
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_UPDATED")
     private Date dateUpdated;
+    @NotNull
+    private boolean isActive;
 
     public Address() {
         Calendar calendar = Calendar.getInstance();
@@ -105,5 +106,13 @@ public class Address extends BaseObject {
 
     public void setDateUpdated(Date dateUpdated) {
         this.dateUpdated = dateUpdated;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

@@ -1,11 +1,42 @@
 package us.kulba.monterey.model;
 
+import org.hibernate.validator.constraints.Length;
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 /**
- * Created with IntelliJ IDEA.
- * User: jkulba
- * Date: 5/25/12
- * Time: 3:19 PM
- * To change this template use File | Settings | File Templates.
+ * Model object that represents a List.
+ *
+ * @author James Kulba, jjkulba@yahoo.com
  */
-public class List {
+@Entity
+@Table(name = "LIST")
+public class List extends AbstractPersistable<Long> {
+    private static final long serialVersionUID = 1L;
+
+    @NotNull
+    @Length(max = 50)
+    private String name;
+
+    @NotNull
+    private boolean isActive;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

@@ -1,11 +1,10 @@
 package us.kulba.monterey.dao.jpa;
 
+import org.springframework.data.repository.CrudRepository;
+import us.kulba.monterey.model.List;
+
 /**
- * Created with IntelliJ IDEA.
- * User: jkulba
- * Date: 5/25/12
- * Time: 3:23 PM
- * To change this template use File | Settings | File Templates.
+ * Repository Interface for Event data.
+ * @author James Kulba, jjkulba@yahoo.com
  */
-public class ListRepository {
-}
+public interface ListRepository extends CrudRepository<List, Long> {}
