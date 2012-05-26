@@ -1,11 +1,11 @@
 package us.kulba.monterey.dao.jpa;
 
+import org.springframework.data.repository.CrudRepository;
+import us.kulba.monterey.model.Address;
+
 /**
- * Created with IntelliJ IDEA.
- * User: jkulba
- * Date: 5/25/12
- * Time: 4:24 PM
- * To change this template use File | Settings | File Templates.
+ * Repository Interface for Contact data.
+ * @author James Kulba, jjkulba@yahoo.com
  */
-public class AddressRepository {
+public interface AddressRepository extends CrudRepository<Address, Long> {
 }
