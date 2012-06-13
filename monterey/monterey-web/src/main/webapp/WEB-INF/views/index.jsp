@@ -14,5 +14,10 @@
     <script type="text/javascript" src="firebugx.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
+    <div id="header">
+        <span>Monterey</span>
+    </div>
+
+
 </body>
 </html>
