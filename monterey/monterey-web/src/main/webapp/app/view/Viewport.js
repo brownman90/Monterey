@@ -14,17 +14,22 @@ Ext.define('Monterey.view.Viewport', {
 		var me = this;
 
 		me.items = [ {
+		    xtype: 'panel',
 			region: 'north',
-			xtype: 'panel',
-			split: false
+			height: 66,
+			border: false,
+			bodyCls: 'header_bg',
+            contentEl: 'header'
 		}, {
+		    xtype: 'panel',
 			region: 'center',
-			xtype: 'panel',
+			border: false,
 			plain: true
 		}, {
+		    xtype: 'panel',
 			region: 'west',
-			xtype: 'panel',
-			width: 180
+			width: 180,
+			border: false
 		} ];
 
 		me.callParent(arguments);
