@@ -21,7 +21,13 @@
         <org.aspectj.version>1.6.11</org.aspectj.version>
         <org.codehaus.jackson.version>1.9.6</org.codehaus.jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <releaseNumber>1.0.0</releaseNumber>
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:jkulba/Monterey.git</connection>
+    </scm>
 
     <dependencies>
 
@@ -187,6 +193,41 @@
                 <version>2.5</version>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <shortRevisionLength>8</shortRevisionLength>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                    <timestampFormat>{0,date,yyyy-MM-dd HH:mm:ss}</timestampFormat>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Build>${releaseNumber}-${buildNumber}</Implementation-Build>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
 
         </plugins>
 
