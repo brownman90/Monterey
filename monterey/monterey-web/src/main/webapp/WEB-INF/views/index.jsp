@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Monterey WebApp</title>
+    <title>Monterey - Contacts</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.1.1-gpl/resources/css/ext-all-gray.css">
     <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.1.1-gpl/ext-all.js"></script>

@@ -5,7 +5,6 @@
     <persistence-unit name="MONTEREY">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>us.kulba.monterey.model.Contact</class>
-        <class>us.kulba.monterey.model.Event</class>
         <class>us.kulba.monterey.model.Email</class>
         <class>us.kulba.monterey.model.HomeEmail</class>
         <class>us.kulba.monterey.model.List</class>
