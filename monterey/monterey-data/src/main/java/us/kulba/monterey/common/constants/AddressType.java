@@ -10,7 +10,7 @@ public enum AddressType {
 
         @Override
         public String getDescription() {
-            return "Home address type";
+            return "Home Address";
         }
 
         @Override
@@ -22,7 +22,7 @@ public enum AddressType {
 
         @Override
         public String getDescription() {
-            return "School address type";
+            return "School Address";
         }
 
         @Override
@@ -34,7 +34,7 @@ public enum AddressType {
 
         @Override
         public String getDescription() {
-            return "Work address type";
+            return "Work Address";
         }
         @Override
         public boolean display() {

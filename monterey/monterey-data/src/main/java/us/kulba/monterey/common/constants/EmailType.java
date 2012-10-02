@@ -1,28 +1,16 @@
 package us.kulba.monterey.common.constants;
 
 /**
- * Enum that describes the allowed phone types.
+ * Enum that describes the allowed email types.
  *
  * @author James Kulba, jjkulba@yahoo.com
  */
-public enum PhoneType {
+public enum EmailType {
     HOME("Home") {
 
         @Override
         public String getDescription() {
-            return "Home Phone";
-        }
-
-        @Override
-        public boolean display() {
-            return true;
-        }
-    },
-    MOBILE("Mobile") {
-
-        @Override
-        public String getDescription() {
-            return "Mobile Phone";
+            return "Home Email";
         }
 
         @Override
@@ -34,7 +22,7 @@ public enum PhoneType {
 
         @Override
         public String getDescription() {
-            return "Work Phone";
+            return "Work Email";
         }
         @Override
         public boolean display() {
@@ -43,7 +31,7 @@ public enum PhoneType {
     };
     private final String strValue;
 
-    private PhoneType(final String strValue) {
+    private EmailType(final String strValue) {
         this.strValue = strValue;
     }
 

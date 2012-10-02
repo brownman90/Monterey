@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import us.kulba.monterey.model.List;
 
 /**
- * Repository Interface for Event data.
+ * Repository Interface for Contact List data.
  * @author James Kulba, jjkulba@yahoo.com
  */
 public interface ListRepository extends CrudRepository<List, Long> {}
