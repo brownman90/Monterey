@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Repository Interface for Contact data.
+ *
  * @author James Kulba, jjkulba@yahoo.com
  */
 public interface ContactRepository extends CrudRepository<Contact, Long> {

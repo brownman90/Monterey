@@ -61,12 +61,6 @@ public class ContactRepositoryTest {
             logger.info(contact.toString());
         }
 
-        Contact _contact = contactRepository.findOne(1L);
-        _contact.setFirstName("Joseph");
-        contactRepository.save(_contact);
-
-        logger.debug(_contact.toString());
-
     }
 
 }
