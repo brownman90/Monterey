@@ -12,6 +12,7 @@ import us.kulba.monterey.model.Contact;
 import java.util.Calendar;
 
 @Service
+@Transactional(readOnly = true)
 public class ContactManagerImpl implements ContactManager{
     static final Logger log = LoggerFactory.getLogger(ContactManagerImpl.class);
 
@@ -24,6 +25,7 @@ public class ContactManagerImpl implements ContactManager{
     }
 
     @Override
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public Contact updateContact(Contact contact) {
         Contact _contact = contactRepository.findOne(contact.getId());
         contact.setDateEntered(_contact.getDateEntered());
@@ -33,11 +35,13 @@ public class ContactManagerImpl implements ContactManager{
     }
 
     @Override
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public Contact createContact(Contact contact) {
         return contactRepository.save(contact);
     }
 
     @Override
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void removeContact(Long contactId) {
         contactRepository.delete(contactId);
     }
