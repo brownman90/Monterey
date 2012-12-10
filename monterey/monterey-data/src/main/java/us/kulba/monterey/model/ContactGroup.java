@@ -8,13 +8,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
- * Model object that represents a Contact Group.
+ * Model object that represents a Contact ContactGroup.
  *
  * @author James Kulba, jjkulba@yahoo.com
  */
 @Entity
 @Table(name = "CONTACT_GROUP")
-public class Group extends AbstractPersistable<Long> {
+public class ContactGroup extends AbstractPersistable<Long> {
     private static final long serialVersionUID = 1L;
 
     @NotNull
