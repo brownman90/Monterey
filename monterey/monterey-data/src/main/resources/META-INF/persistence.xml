@@ -8,7 +8,7 @@
         <class>us.kulba.monterey.model.Contact</class>
         <class>us.kulba.monterey.model.Email</class>
         <class>us.kulba.monterey.model.HomeEmail</class>
-        <class>us.kulba.monterey.model.Group</class>
+        <class>us.kulba.monterey.model.ContactGroup</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
 
