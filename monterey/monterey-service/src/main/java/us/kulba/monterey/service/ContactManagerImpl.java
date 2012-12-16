@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import us.kulba.monterey.dao.jpa.ContactGroupRepository;
 import us.kulba.monterey.dao.jpa.ContactRepository;
 import us.kulba.monterey.model.Contact;
+import us.kulba.monterey.model.ContactGroup;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -18,6 +21,8 @@ public class ContactManagerImpl implements ContactManager{
 
     @Autowired
     ContactRepository contactRepository;
+    @Autowired
+    ContactGroupRepository contactGroupRepository;
 
     @Override
     public Contact getContact(Long contactId) {
@@ -44,5 +49,12 @@ public class ContactManagerImpl implements ContactManager{
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void removeContact(Long contactId) {
         contactRepository.delete(contactId);
+    }
+
+    public List<ContactGroup> getContactGroups() {
+//        return contactGroupRepository.findAll();
+        return null;
+
+
     }
 }

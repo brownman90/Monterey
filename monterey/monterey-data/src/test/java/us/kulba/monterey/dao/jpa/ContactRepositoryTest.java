@@ -21,7 +21,7 @@ import java.util.List;
  * @author James Kulba, jjkulba@yahoo.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:us/kulba/monterey/monterey-jpa.xml")
+@ContextConfiguration(locations = {"classpath:us/kulba/monterey/monterey-jpa.xml", "classpath:monterey-datasource-test.xml"})
 @Transactional
 public class ContactRepositoryTest {
     final Logger logger = LoggerFactory.getLogger(ContactRepositoryTest.class);
