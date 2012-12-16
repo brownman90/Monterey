@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import us.kulba.monterey.model.ContactGroup;
@@ -17,7 +18,8 @@ import us.kulba.monterey.model.ContactGroup;
  * @author James Kulba, jjkulba@yahoo.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:us/kulba/monterey/monterey-jpa.xml")
+@ContextConfiguration(locations = {"classpath:us/kulba/monterey/monterey-jpa.xml", "classpath:monterey-datasource-test.xml"})
+@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 @Transactional
 public class ContactGroupRepositoryTest {
     final Logger logger = LoggerFactory.getLogger(ContactGroupRepositoryTest.class);

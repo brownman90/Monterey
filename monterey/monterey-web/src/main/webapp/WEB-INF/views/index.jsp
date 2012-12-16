@@ -21,31 +21,3 @@
 
 </body>
 </html>
-
-
-<!doctype html>
-<html>
-<head>
-    <title>Tweets</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.pre/ember-1.0.pre.min.js"></script>
-    <script src="app.js"></script>
-</head>
-<body>
-    <script type="text/x-handlebars">
-        <div id="frm">
-            <b>Load Tweets for: </b>
-        </div>
-        <div id="content">
-            <div id="recent">
-                <h3>Recent Users</h3>
-            </div>
-            <div id="tweets">
-                <h3>Tweets</h3>
-            </div>
-        </div>
-    </script>
-</body>
-</html>
