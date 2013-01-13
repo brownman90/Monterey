@@ -12,6 +12,6 @@ public interface ContactManager {
     public Contact createContact(Contact contact);
     public void removeContact(Long contactId);
 
-    public List<ContactGroup> getContactGroups();
+    public List<ContactGroup> findActiveContactGroups();
 
 }

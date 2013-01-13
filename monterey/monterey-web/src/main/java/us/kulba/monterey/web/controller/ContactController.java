@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import us.kulba.monterey.model.Contact;
+import us.kulba.monterey.model.ContactGroup;
 import us.kulba.monterey.service.ContactManager;
+
+import java.util.List;
 
 /**
  * Restful controller to handle client requests.
@@ -72,5 +75,25 @@ public class ContactController {
 
         return model;
     }
+
+    @RequestMapping(value = "contact_groups", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ModelMap viewContactGroupsHandler(ModelMap model) {
+
+        List<ContactGroup> list = contactManager.findActiveContactGroups();
+
+        if (!list.isEmpty()) {
+            model.addAttribute("data", list);
+            model.addAttribute("success", true);
+        } else {
+            model.addAttribute("success", false);
+            model.addAttribute("message", "No contact groups were found.");
+            log.warn("No contact groups were found.");
+        }
+
+        return model;
+    }
+
 
 }

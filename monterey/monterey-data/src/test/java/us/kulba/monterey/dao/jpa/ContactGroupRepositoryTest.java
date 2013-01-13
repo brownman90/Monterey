@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import us.kulba.monterey.model.ContactGroup;
 
+import java.util.List;
+
 /**
  * Junit test exercises Contact ContactGroup CRUD actions.
  *
@@ -32,7 +34,7 @@ public class ContactGroupRepositoryTest {
         logger.info("Hello Joe");
     }
 
-    @Test
+//    @Test
     public void saveContactGroup() {
 
         ContactGroup contactGroup = new ContactGroup();
@@ -40,7 +42,28 @@ public class ContactGroupRepositoryTest {
         contactGroup.setName("Family");
         contactGroupRepository.save(contactGroup);
 
+        contactGroup = new ContactGroup();
+        contactGroup.setActive(true);
+        contactGroup.setName("Friends");
+        contactGroupRepository.save(contactGroup);
+
+        contactGroup = new ContactGroup();
+        contactGroup.setActive(true);
+        contactGroup.setName("Colleagues");
+        contactGroupRepository.save(contactGroup);
+
         logger.info(contactGroup.toString());
+    }
+
+    @Test
+    public void findByIsActive() {
+
+        List<ContactGroup> list = contactGroupRepository.findByIsActive(true);
+
+        for (ContactGroup contactGroup : list) {
+            logger.info(contactGroup.toString());
+        }
+
     }
 
 }
