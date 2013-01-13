@@ -51,10 +51,8 @@ public class ContactManagerImpl implements ContactManager{
         contactRepository.delete(contactId);
     }
 
-    public List<ContactGroup> getContactGroups() {
-//        return contactGroupRepository.findAll();
-        return null;
-
-
+    @Override
+    public List<ContactGroup> findActiveContactGroups() {
+        return contactGroupRepository.findByIsActive(true);
     }
 }
