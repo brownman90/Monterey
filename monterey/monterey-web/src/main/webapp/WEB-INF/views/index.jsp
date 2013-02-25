@@ -1,23 +1,33 @@
-<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <title>Monterey - Contacts</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.1.1-gpl/resources/css/ext-all-gray.css">
-    <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.1.1-gpl/ext-all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/monterey.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Backbone.js + RequireJS • TodoMVC</title>
+	<link rel="stylesheet" href="css/base.css">
 
+	<script data-main="js/main" src="js/lib/require/require.js"></script>
+	<!--[if IE]>
+	<script src="js/lib/ie.js"></script>
+	<![endif]-->
 </head>
 <body>
-
-    <script type="text/javascript" src="firebugx.js"></script>
-    <script type="text/javascript" src="app.js"></script>
-
-    <div id="header">
-        <span>Monterey</span>
-    </div>
-
-
+	<section id="todoapp">
+		<header id="header">
+			<h1>todos</h1>
+			<input id="new-todo" placeholder="What needs to be done?" autofocus>
+		</header>
+		<section id="main">
+			<input id="toggle-all" type="checkbox">
+			<label for="toggle-all">Mark all as complete</label>
+			<ul id="todo-list"></ul>
+		</section>
+		<footer id="footer"></footer>
+	</section>
+	<footer id="info">
+		<p>Double-click to edit a todo</p>
+		<p>Written by <a href="http://addyosmani.github.com/todomvc/">Addy Osmani</a></p>
+		<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+	</footer>
 </body>
 </html>
