@@ -10,6 +10,8 @@
 
     <jpa:repositories base-package="us.kulba.monterey.dao.jpa" />
 
+	<!--<jdbc:embedded-database id="dataSource" type="HSQL" />-->
+
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -17,9 +19,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true" />
 				<property name="generateDdl" value="true" />
-                <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
-
-        <!--<property name="database" value="POSTGRESQL" />-->
+				<property name="database" value="HSQL" />
 			</bean>
 		</property>
 		<property name="persistenceUnitName" value="MONTEREY" />
@@ -28,26 +28,5 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
-	<!--<jdbc:embedded-database id="dataSource" type="HSQL" />-->
-
-	<!--<bean id="entityManagerFactory"-->
-		<!--class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-		<!--<property name="dataSource" ref="dataSource" />-->
-		<!--<property name="jpaVendorAdapter">-->
-			<!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
-                <!--<property name="showSql" value="true" />-->
-				<!--<property name="generateDdl" value="true" />-->
-				<!--<property name="database" value="HSQL" />-->
-			<!--</bean>-->
-		<!--</property>-->
-		<!--<property name="persistenceUnitName" value="MONTEREY" />-->
-	<!--</bean>-->
-
-	<!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-		<!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
-	<!--</bean>-->
-
-	<!--<jdbc:embedded-database id="dataSource" type="HSQL" />-->
 
 </beans>
