@@ -2,6 +2,7 @@
 .idea
 monterey.iml
 monterey.ipr
+monterey.iws
 monterey-data.iml
 monterey-web.iml
 .DS_Store
