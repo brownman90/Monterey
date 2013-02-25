@@ -1,6 +1,7 @@
 # Ignore the following files
 .idea
 monterey.iml
+monterey.ipr
 monterey-data.iml
 monterey-web.iml
 .DS_Store
