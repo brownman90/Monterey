@@ -6,9 +6,7 @@ monterey-data.iml
 monterey-web.iml
 .DS_Store
 
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+.classpath
+.project
+.settings/
+target/
